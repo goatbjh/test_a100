@@ -1,0 +1,14 @@
+pong-impala-fast:
+    env: PongNoFrameskip-v4
+    run: IMPALA
+    config:
+        sample_batch_size: 50
+        train_batch_size: 1000
+        num_workers: 255
+        num_envs_per_worker: 16
+        broadcast_interval: 5
+        max_sample_requests_in_flight_per_worker: 1
+        num_data_loader_buffers: 4
+        num_gpus: 4
+        model:
+          dim: 42

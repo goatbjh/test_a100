@@ -1,0 +1,14 @@
+torch
+pyzmq==18.0.0
+opencv-python==4.0.0.21
+tensorboardX
+gym==0.12.0
+gym[atari]
+Pillow
+sklearn
+ray[tune]
+ray[rllib]
+pymysql
+dm-tree
+torchvision
+
