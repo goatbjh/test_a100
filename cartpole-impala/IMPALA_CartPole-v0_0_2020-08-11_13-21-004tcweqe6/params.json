@@ -1,0 +1,5 @@
+{
+  "env": "CartPole-v0",
+  "framework": "tf",
+  "num_gpus": 0
+}

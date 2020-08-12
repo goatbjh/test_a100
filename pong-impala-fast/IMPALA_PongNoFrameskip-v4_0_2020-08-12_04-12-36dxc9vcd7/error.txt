@@ -1,0 +1,57 @@
+Failure # 1 (occurred at 2020-08-12_04-12-38)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/ray/tune/trial_runner.py", line 468, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/usr/local/lib/python3.6/dist-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/usr/local/lib/python3.6/dist-packages/ray/worker.py", line 1474, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(DependencyNotInstalled): [36mray::IMPALA.train()[39m (pid=62343, ip=172.17.0.3)
+  File "/usr/local/lib/python3.6/dist-packages/gym/envs/atari/atari_env.py", line 9, in <module>
+    import atari_py
+ModuleNotFoundError: No module named 'atari_py'
+
+During handling of the above exception, another exception occurred:
+
+[36mray::IMPALA.train()[39m (pid=62343, ip=172.17.0.3)
+  File "python/ray/_raylet.pyx", line 407, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 442, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 445, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 446, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 400, in ray._raylet.execute_task.function_executor
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer_template.py", line 90, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer.py", line 450, in __init__
+    super().__init__(config, logger_creator)
+  File "/usr/local/lib/python3.6/dist-packages/ray/tune/trainable.py", line 175, in __init__
+    self._setup(copy.deepcopy(self.config))
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer.py", line 623, in _setup
+    self._init(self.config, self.env_creator)
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer_template.py", line 115, in _init
+    self.config["num_workers"])
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer.py", line 696, in _make_workers
+    logdir=self.logdir)
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/evaluation/worker_set.py", line 59, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/evaluation/worker_set.py", line 282, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/evaluation/rollout_worker.py", line 306, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer.py", line 554, in <lambda>
+    self.env_creator = lambda env_config: gym.make(env)
+  File "/usr/local/lib/python3.6/dist-packages/gym/envs/registration.py", line 171, in make
+    return registry.make(id, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/gym/envs/registration.py", line 123, in make
+    env = spec.make(**kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/gym/envs/registration.py", line 86, in make
+    cls = load(self._entry_point)
+  File "/usr/local/lib/python3.6/dist-packages/gym/envs/registration.py", line 14, in load
+    result = entry_point.resolve()
+  File "/usr/local/lib/python3.6/dist-packages/pkg_resources/__init__.py", line 2468, in resolve
+    module = __import__(self.module_name, fromlist=['__name__'], level=0)
+  File "/usr/local/lib/python3.6/dist-packages/gym/envs/atari/__init__.py", line 1, in <module>
+    from gym.envs.atari.atari_env import AtariEnv
+  File "/usr/local/lib/python3.6/dist-packages/gym/envs/atari/atari_env.py", line 11, in <module>
+    raise error.DependencyNotInstalled("{}. (HINT: you can install Atari dependencies by running 'pip install gym[atari]'.)".format(e))
+gym.error.DependencyNotInstalled: No module named 'atari_py'. (HINT: you can install Atari dependencies by running 'pip install gym[atari]'.)
+

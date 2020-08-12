@@ -1,0 +1,8 @@
+{
+  "env": "CartPole-v0",
+  "framework": "tf",
+  "num_envs_per_worker": 5,
+  "num_gpus": 0,
+  "num_workers": 255,
+  "train_batch_size": 1000
+}

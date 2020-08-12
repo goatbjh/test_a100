@@ -1,0 +1,47 @@
+Failure # 1 (occurred at 2020-08-11_13-25-06)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/ray/tune/trial_runner.py", line 468, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/usr/local/lib/python3.6/dist-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/usr/local/lib/python3.6/dist-packages/ray/worker.py", line 1474, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(RuntimeError): [36mray::IMPALA.train()[39m (pid=17267, ip=172.17.0.3)
+  File "python/ray/_raylet.pyx", line 446, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 400, in ray._raylet.execute_task.function_executor
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer.py", line 500, in train
+    raise e
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer.py", line 486, in train
+    result = Trainable.train(self)
+  File "/usr/local/lib/python3.6/dist-packages/ray/tune/trainable.py", line 261, in train
+    result = self._train()
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer_template.py", line 132, in _train
+    return self._train_exec_impl()
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/agents/trainer_template.py", line 170, in _train_exec_impl
+    res = next(self.train_exec_impl)
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 731, in __next__
+    return next(self.built_iterator)
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 744, in apply_foreach
+    for item in it:
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 744, in apply_foreach
+    for item in it:
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 814, in apply_filter
+    for item in it:
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 814, in apply_filter
+    for item in it:
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 744, in apply_foreach
+    for item in it:
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 814, in apply_filter
+    for item in it:
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 1047, in build_union
+    item = next(it)
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 731, in __next__
+    return next(self.built_iterator)
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 744, in apply_foreach
+    for item in it:
+  File "/usr/local/lib/python3.6/dist-packages/ray/util/iter.py", line 744, in apply_foreach
+    for item in it:
+  File "/usr/local/lib/python3.6/dist-packages/ray/rllib/execution/concurrency_ops.py", line 132, in base_iterator
+    raise RuntimeError("Error raised reading from queue")
+RuntimeError: Error raised reading from queue
+
