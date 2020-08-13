@@ -1,0 +1,16 @@
+{
+  "broadcast_interval": 5,
+  "env": "PongNoFrameskip-v4",
+  "framework": "tf",
+  "max_sample_requests_in_flight_per_worker": 1,
+  "model": {
+    "dim": 42
+  },
+  "num_data_loader_buffers": 4,
+  "num_envs_per_worker": 5,
+  "num_gpus": 4,
+  "num_workers": 79,
+  "object_store_memory": 53687091200,
+  "sample_batch_size": 50,
+  "train_batch_size": 1000
+}
